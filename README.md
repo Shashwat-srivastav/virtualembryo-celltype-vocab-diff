@@ -2,26 +2,26 @@
 
 Diff the cell-type label vocabulary between two stages of the Virtual Embryo
 Challenge data, and get candidate renames for labels that appear in only one
-side — so you spend your time checking a short candidate list instead of
+side, so you spend your time checking a short candidate list instead of
 manually eyeballing two label sets against each other.
 
 ## Why this exists
 
 Cell-type vocabulary isn't harmonized across stages (see the companion
-[virtualembryo-data-gotchas](../virtualembryo-data-gotchas) repo). Applied
+[Data Gotchas](https://github.com/Shashwat-srivastav/virtualembryo-data-gotchas) repo). Applied
 to the actual published E8.5/E9.5 label sets
 (`data/metadata/t1_composition.json`), only 11 of ~18-21 labels per stage
-are shared verbatim — but several of the "unmatched" ones are plausible
+are shared verbatim, but several of the "unmatched" ones are plausible
 renames, not real absences: `LV-CM`/`RV-CM` at E8.5 vs `V-CM` at E9.5, or
 `Endothelium` at E8.5 vs `Endocardium`/`Epithelium` at E9.5.
 
-**This tool makes no biological claim about which renames are correct** — it
+**This tool makes no biological claim about which renames are correct**. It
 only uses string similarity (Python's stdlib `difflib`, no extra
 dependencies) to narrow which labels are worth a human looking at. Every
 suggestion is explicitly marked "VERIFY, not confirmed." A label with no
 lexical match might still be a real rename under a completely different
 name, and a suggested candidate might still be lexically similar by
-coincidence — this only handles the mechanical part (surfacing candidates),
+coincidence. This only handles the mechanical part (surfacing candidates),
 not the biology.
 
 ## Usage
@@ -52,7 +52,7 @@ Only in B (2):
   'BEC' -- no close lexical match in A, may be a genuine absence
 ```
 
-`--cutoff` (default 0.6) controls the `difflib` similarity threshold —
+`--cutoff` (default 0.6) controls the `difflib` similarity threshold:
 lower it to surface more (noisier) candidates, raise it to see only very
 close matches.
 
@@ -69,7 +69,7 @@ python test_vocab_diff.py
 
 ## Limitations
 
-- Purely lexical (string similarity) — has no biological knowledge and
+- Purely lexical (string similarity), with no biological knowledge, so it
   cannot confirm that two labels actually refer to the same or related
   population. Always verify a candidate against the actual literature or
   marker genes before relying on it.
@@ -80,7 +80,7 @@ python test_vocab_diff.py
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
 
 ---
 

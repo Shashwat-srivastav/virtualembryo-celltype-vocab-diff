@@ -1,6 +1,6 @@
 """Unit tests for diff_labels(), plus a real-data check against the actual
 E8.5 vs E9.5 cell-type vocabulary published in
-data/metadata/t1_composition.json (no anndata/file I/O needed -- pure label
+data/metadata/t1_composition.json (no anndata/file I/O needed, pure label
 lists). Run with: python test_vocab_diff.py
 """
 from vocab_diff import diff_labels

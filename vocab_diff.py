@@ -6,7 +6,7 @@ Cell-type vocabulary is not harmonized across stages (see the companion
 virtualembryo-data-gotchas repo): a label absent from one stage may just be
 a rename, not a true biological absence (e.g. one label at an earlier stage
 possibly corresponding to several more specific labels at a later one). This
-tool does NOT claim to know which renames are correct -- it only narrows
+tool does NOT claim to know which renames are correct. It only narrows
 "which labels should a human even look at" using string similarity, which is
 a purely lexical signal with no biological knowledge behind it. Always
 verify a suggested candidate yourself before treating it as a real match.
